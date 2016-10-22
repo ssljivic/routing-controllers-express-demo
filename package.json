@@ -2,7 +2,7 @@
   "name": "routing-controllers-express-demo",
   "private": true,
   "version": "0.0.1",
-  "description": "Example of express + typescript project using routing-controllers",
+  "description": "Example of express + cors + typescript project using routing-controllers",
   "license": "MIT",
   "readmeFilename": "README.md",
   "author": {
@@ -22,7 +22,9 @@
     "routing-controllers"
   ],
   "dependencies": {
+    "@types/node": "^6.0.45",
     "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
     "express": "^4.14.0",
     "multer": "^1.1.0",
     "reflect-metadata": "^0.1.3",

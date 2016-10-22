@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Open console to see request results</p>
+</body>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        console.log('loading posts...');
+
+        console.log(this.readyState);
+        console.log(this.status);
+
+        if (this.readyState == 4 && this.status == 200) {
+            // Typical action to be performed when the document is ready:
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.open('GET', 'http://localhost:3000/posts', true);
+    xhr.send();
+</script>
+</html>
