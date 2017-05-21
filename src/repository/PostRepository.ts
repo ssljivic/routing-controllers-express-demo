@@ -5,12 +5,17 @@ import {Category} from "../model/Category";
 @Service()
 export class PostRepository {
 
-    private posts = [
-        new Post(1, "post #1", "about post #1", [new Category(1, "People"), new Category(2, "Technology")]),
-        new Post(2, "post #2", "about post #2", [new Category(2, "Technology")]),
-        new Post(3, "post #3", "about post #3", [new Category(3, "Politics")]),
-        new Post(4, "post #4", "about post #4", [new Category(3, "Politics"), new Category(4, "Economy")]),
-    ];
+    private posts: Post[] = [];
+
+    constructor() {
+        this.init();
+    }
+
+    private init() {
+        for (let i = 0; i < 1000; ++i) {
+            this.posts.push(new Post(i, `post #${i}`, `about post #${i}`, [new Category(i * 1000 + 1, `Category ${i * 1000 + 1}`), new Category(i * 1000 + 2, `Category ${i * 1000 + 2}`)]));
+        }
+    }
 
     findAll() {
         // here, for example you can load categories using mongoose

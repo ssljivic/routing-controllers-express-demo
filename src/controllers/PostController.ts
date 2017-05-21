@@ -1,4 +1,4 @@
-import {JsonController, Get, Post as HttpPost, Param, Delete, Body} from "routing-controllers";
+import {JsonController, Get, Post as HttpPost, Param, Delete, Body, Res} from "routing-controllers";
 import {Service} from "typedi";
 import {PostRepository} from "../repository/PostRepository";
 import {Post} from "../model/Post";
@@ -13,6 +13,14 @@ export class PostController {
     @Get("/posts")
     all(): Promise<Post[]> {
         return this.postRepository.findAll();
+    }
+
+    @Get("/posts2")
+    all2(@Res() res: any): Promise<void> {
+        return this.postRepository.findAll()
+        .then(posts => {
+            res.send(posts);
+        });
     }
 
     @Get("/posts/:id")
