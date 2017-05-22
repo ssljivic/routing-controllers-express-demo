@@ -16,8 +16,8 @@ export class PostController {
     }
 
     @Get("/posts2")
-    all2(@Res() res: any): Promise<void> {
-        return this.postRepository.findAll()
+    all2(@Res() res: any) {
+        this.postRepository.findAll()
         .then(posts => {
             res.send(posts);
         });
