@@ -1,8 +1,11 @@
 import "reflect-metadata";
-import {createExpressServer, useContainer, useExpressServer} from "routing-controllers";
+import {createExpressServer, useContainer} from "routing-controllers";
 import {Container} from "typedi";
 import {CategoryController} from "./controllers/CategoryController";
 import {PostController} from "./controllers/PostController";
+export {AccessLogMiddleware} from './middlewares/AccessLogMiddleware';
+export {Noop2Middleware} from './middlewares/Noop2Middleware';
+export {NoopMiddleware} from './middlewares/NoopMiddleware';
 
 /**
  * Setup routing-controllers to use typedi container.

@@ -18,7 +18,7 @@ export class PostController {
     @Get("/posts2")
     all2(@Res() res: any) {
         this.postRepository.findAll()
-        .then(posts => {
+        .then((posts: Post[]) => {
             res.send(posts);
         });
     }
